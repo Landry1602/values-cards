@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.gradient-header {
+    background: linear-gradient(
+      to bottom,
+      #15152a,  /* Change this to your 'midnight-100' color */
+      #15152a 65%,  /* Maintain the color until 75% */
+      transparent 100%  /* Transition to transparent */
+    );
+  }
