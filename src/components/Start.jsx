@@ -1,10 +1,14 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate} from "react-router-dom"
+import { CategoriesContext } from "../contexts/CategoryContext";
+import { useContext } from "react";
 
 function Start() {
     const navigate = useNavigate();
+    const { resetCategories } = useContext(CategoriesContext);
 
 
     const handleClick = () => {
+        resetCategories()
         navigate('/app')
     }
 
