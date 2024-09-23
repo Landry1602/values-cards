@@ -1,5 +1,5 @@
 import data from '../assets/values.json';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { CategoriesContext } from '../contexts/CategoryContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ function Categorisation() {
     const [currentIndex, setCurrentIndex] = useState(0);
   
     // Access context to use the `addToCategory` function
-    const { addToCategory } = useContext(CategoriesContext);
+    const { addToCategory, resetCategories } = useContext(CategoriesContext);
   
     const handleCategorySelection = (category) => {
       const currentValue = entries[currentIndex][0]; // Get the current value (key)
@@ -27,6 +27,10 @@ function Categorisation() {
         setIsFinished(true)
       }
     };
+
+    useEffect(() => {
+      resetCategories(); 
+    }, [])
 
     const handleNavigateToResults = () => {
       navigate('/resultats');
